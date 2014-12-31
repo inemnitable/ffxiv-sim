@@ -1,5 +1,4 @@
-require "action_lock"
-require "action_queue"
+require "actor"
 
 Simulation = class(function(self, rotation) 
     self.lock = ActionLock()

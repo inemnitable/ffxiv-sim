@@ -1,8 +1,8 @@
-Action = class(function(self) return end)
-
-function Action:perform()
-  return
-end
+Action = class(function(self, func) 
+    local mt = getmetatable(self)
+    mt.__call = func
+    setmetatable(self, mt)    
+  end)
 
 function Action:is_ready()
   return true
@@ -12,13 +12,8 @@ function Action:should_block()
   return false
 end
 
-Skill = class(function(self, actor, target)
+Skill = class(function(self, actor, target, func)
     self.actor = actor
     self.target = target
-    return
+    self:super(func)
   end, Action)
-
-DragonKick = class(function(self, actor, target)
-    self:super(actor, target)
-    return
-  end, Skill)
