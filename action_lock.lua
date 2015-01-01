@@ -4,11 +4,12 @@ ActionLock = class(function(self)
   end)
 
 function ActionLock:on_gcd(sim)
-  return sim.time >= self.gcd
+  return sim.time < self.gcd
 end
 
 function ActionLock:locked(sim)
-  return sim.time >= self.lock
+  print("checking lock status, lock time", self.lock, "time", sim.time)
+  return sim.time < self.lock
 end
 
 function ActionLock:gcd_remaining(sim)
@@ -17,6 +18,7 @@ function ActionLock:gcd_remaining(sim)
 end
 
 function ActionLock:animate(sim, duration)
+  print("locking for duration cs")
   self.lock = sim.time + duration
 end
 

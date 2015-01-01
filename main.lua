@@ -1,10 +1,14 @@
 __ = require 'underscore'
 require("class")
 require("simulation")
-require("rotation")
 require("skill")
+require("rotation")
+require("actor")
+require("effect")
+require("aura")
 
-local rot = Rotation("dragoon")
-local sim = Simulation(rot)
+local player = Actor("dragoon")
+local target = Actor()
+local sim = Simulation(player, target)
 
-return sim:run()
+print(sim:run(10000))
