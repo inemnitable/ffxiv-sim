@@ -1,6 +1,3 @@
-require 'action_queue'
-require 'action_lock'
-
 Actor = class(function(self, job, rotation)
     self.job = job
     self.rotation = rotation or job and Rotation[job]

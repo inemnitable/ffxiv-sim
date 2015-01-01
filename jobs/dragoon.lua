@@ -28,17 +28,9 @@ local dragoon = {
 }
 
 local function rotation(t, sim, actor, target)
-  print "sim"
-  for k,v in pairs(sim) do print(k,v) end
-  print "actor"
-  for k,v in pairs(actor) do print(k,v) end
-  print "target"
-  for k,v in pairs(target) do print(k,v) end
-  -- print("rotation got actor", actor, "target", target)
   if actor.lock:on_gcd(sim) then return end
   local skill = dragoon.true_thrust
   return function()
-    -- print(skill, actor, target)
     perform_skill(sim, skill, actor, target)
   end
 end

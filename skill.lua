@@ -23,16 +23,6 @@ Skill = class(function(self, actor, target, func)
   end, Action)
 
 function perform_skill(sim, skill, actor, target)
-  -- print(actor)
-  print "sim"
-  for k,v in pairs(sim) do print(k, v) end
-  print "skill"
-  for k,v in pairs(skill) do print(k,v) end
-  print "actor"
-  for k,v in pairs(actor) do print(k, v) end
-  print "target"
-  for k,v in pairs(target) do print(k,v) end
-
   assert(__.include(skill.affinity, actor.job),
     "this job cannot perform this skill!")
   local potency = type(skill.potency) == "function" and
