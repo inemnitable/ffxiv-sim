@@ -27,8 +27,8 @@ function perform_skill(sim, skill, actor, target)
     "this job cannot perform this skill!")
   local potency = type(skill.potency) == "function" and
     skill.potency(actor) or skill.potency
-  local base_damage = actor:base_damage()
-  local effect = skill.effect()
+  local base_damage = actor:skill_damage()
+  local effect = type(skill.effect) == "function" and skill.effect() or skill.effect
   effect.damage = base_damage * potency / 100
   for _,aura in ipairs(actor.auras) do
     aura(effect, "perform")

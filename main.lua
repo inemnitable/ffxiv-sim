@@ -1,4 +1,4 @@
-__ = require 'underscore'
+__ = require 'libs/underscore'
 require("class")
 require("action_queue")
 require("action_lock")
